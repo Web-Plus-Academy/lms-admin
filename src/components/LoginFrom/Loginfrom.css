@@ -1,0 +1,122 @@
+/* CARD CONTAINER */
+.login-card {
+  width: 500px;
+  height: 80vh;
+  background: #ffffff;
+  border-radius: 40px 40px 0 0;
+  padding:20px 50px ;
+  text-align: center;
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.15);
+  border: 5px solid #363636;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  box-shadow: 0px 0px 15px white;
+}
+
+/* HEADER */
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.login-logo {
+  width: 100%;
+}
+
+.login-title {
+  font-size: 35px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.login-subtitle {
+  margin-top: -5px;
+  font-size: 14px;
+  color: #666;
+}
+
+.login-line {
+  width: 80px;
+  height: 3px;
+  background: #666;
+  margin-top: 6px;
+  border-radius: 3px;
+}
+
+/* FORM FIELDS */
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 45px 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #cfcfcf;
+  font-size: 16px;
+  outline: none;
+}
+
+.input-icon {
+  position: absolute;
+  right: 14px;
+  font-size: 20px;
+  color: #696969;
+  cursor: pointer;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  opacity: 0.85;
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 40px;
+  margin-top: 50px;
+  color: #000;
+}
+
+.social-icons svg {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social-icons svg:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,70 @@
+.loginpage{
+    background-image: url('../../assets/bg.png');  
+    background-size: cover;
+    height: 100vh;
+    color: white;
+    display: flex;
+}
+
+.leftpart{
+    /* border: 2px solid red; */
+    width: 50%;
+    display: flex;
+    /* justify-content: center; */
+    padding-left: 100px;
+    align-items: center;
+    padding-top: 300px;
+}
+
+.rightpart{
+    /* border: 2px solid rgb(0, 255, 51); */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* TEXT SLIDER */
+.textslider h1 {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.textslider p {
+  font-size: 18px;
+  max-width: 480px;
+  line-height: 1.4;
+}
+
+/* SLIDING INDICATORS */
+.slider-lines {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.line {
+  height: 3px;
+  width: 40px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.4);
+  transition: 0.3s;
+}
+
+.line.active {
+  width: 90px;
+  background: #fff;
+}
+
+/* TEXT FADE EFFECT */
+.fade-text {
+  animation: fade 0.6s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+

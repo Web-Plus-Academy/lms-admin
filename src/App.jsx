@@ -2,26 +2,42 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Dashboard from "./pages/Dashboard/Dashboard";
-
-// React Toastify
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SessionWatcher from "./sessionWatcher.js";
 
-// PROTECTED ROUTE COMPONENT
+// PROTECTED ROUTE
 const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem("authToken");
-  return token ? children : <Navigate to="/" replace />;
+  const userId = localStorage.getItem("userId");
+  return userId ? children : <Navigate to="/" replace />;
+};
+
+// PUBLIC ROUTE
+const PublicRoute = ({ children }) => {
+  const userId = localStorage.getItem("userId");
+  return userId ? <Navigate to="/dashboard" replace /> : children;
 };
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          {/* PUBLIC ROUTE */}
-          <Route path="/" element={<Login />} />
 
-          {/* PROTECTED ROUTE */}
+        {/* SESSION WATCHER THAT AUTO-LOGOUTS */}
+        <SessionWatcher />
+
+        <Routes>
+          {/* LOGIN PAGE */}
+          <Route
+            path="/"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+
+          {/* DASHBOARD PAGE */}
           <Route
             path="/dashboard"
             element={
@@ -30,17 +46,13 @@ const App = () => {
               </ProtectedRoute>
             }
           />
+
+          {/* FALLBACK ROUTE */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
 
-      {/* TOAST NOTIFICATION GLOBAL SETUP */}
-      <ToastContainer
-        position="top-right"
-        autoClose={2500}
-        hideProgressBar={false}
-        pauseOnHover
-        theme="colored"
-      />
+      <ToastContainer position="top-right" autoClose={2500} theme="colored" />
     </>
   );
 };

@@ -5,6 +5,7 @@ import { toast } from "react-toastify"; // ⬅️ Toast import
 import "./Login.css";
 import Loginfrom from "../../components/LoginFrom/Loginfrom";
 import Loader from "../../components/Loader/Loader";
+import SERVER_URL from "../../../backendUrl";
 
 const slides = [
     {
@@ -58,34 +59,51 @@ export default function Login() {
             return;
         }
 
-        setLoading(true); // 🔥 start loader
+        setLoading(true);
 
         try {
-            const response = await axios.post("http://localhost:8000/auth/login", {
+            const response = await axios.post(`${SERVER_URL}/api/user/loginUser`, {
                 userId,
-                password,
+                password
             });
 
-            if (response.data.success === true) {
-                toast.success("Login successful! Redirecting...");
-                localStorage.setItem("authToken", response.data.token);
+            if (response.data.success) {
+                toast.success(response.data.message);
 
-                setTimeout(() => navigate("/dashboard"), 1000);
+                // Store User ID or Token Here (you didn't have token in backend yet)
+                localStorage.setItem("userId", response.data.user.userId);
+                localStorage.setItem("loginTime", Date.now()); // store current time in ms
+
+
+                setTimeout(() => {
+                    navigate("/dashboard"); // move to dashboard
+                    setLoading(false); // stop loader AFTER redirect
+                }, 1000);
+
             } else {
-                toast.error("Invalid credentials, please try again!");
+                toast.error(response.data.message); // handles backend failure
+                setLoading(false);
             }
+
         } catch (error) {
-            toast.error("Server error! Please try after sometime.");
-        } finally {
-            setLoading(false); // 🚫 stop loader after axios returns
+            // Distinguish between backend error & network error
+            if (error.response) {
+                // Backend sent an error
+                toast.error(error.response.data.message || "Login failed!");
+            } else {
+                // No response means internet/server issue
+                toast.error("Internet Issue OR Server down!");
+            }
+            setLoading(false);
         }
     };
+
 
 
     return (
         <div className="loginpage">
             {loading && (
-                <Loader/>
+                <Loader />
             )}
 
 

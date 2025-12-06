@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import {
   FaLock,
   FaEye,
-  FaEyeSlash,
-  FaInstagram,
-  FaLinkedin,
-  FaGlobe,
-  FaFacebook
+  FaEyeSlash
 } from "react-icons/fa";
 import "./Loginfrom.css";
 import loginLogo from "../../assets/login-logo.png";
@@ -23,31 +19,34 @@ const Loginfrom = ({
   return (
     <div className="login-card">
       <div className="login-header">
-        <img src={loginLogo} alt="SWPA Logo" className="login-logo" />
+        <img src={loginLogo} alt="Admin Logo" className="login-logo" />
+        <h3 className="admin-title">Admin Login</h3>
         <div className="login-line"></div>
       </div>
 
+      {/* ADMIN ID INPUT */}
       <div className="form-group">
-        <label>User ID</label>
+        <label>Admin ID</label>
         <div className="input-box">
           <input
             type="text"
-            placeholder="enter user id"
+            placeholder="Enter admin ID"
             value={userId}
-            onChange={onUserIdChange} // 🔁 send value to parent
+            onChange={onUserIdChange}
           />
           <FaLock className="input-icon" />
         </div>
       </div>
 
+      {/* PASSWORD INPUT */}
       <div className="form-group">
         <label>Password</label>
         <div className="input-box">
           <input
             type={showPass ? "text" : "password"}
-            placeholder="enter password"
+            placeholder="Enter admin password"
             value={password}
-            onChange={onPasswordChange} // 🔁 send value to parent
+            onChange={onPasswordChange}
           />
           {showPass ? (
             <FaEyeSlash
@@ -64,14 +63,6 @@ const Loginfrom = ({
       <button className="login-btn" onClick={onSubmit}>
         Login
       </button>
-
-      {/* SOCIAL ICONS */}
-      <div className="social-icons">
-        <FaInstagram />
-        <FaLinkedin />
-        <FaGlobe />
-        <FaFacebook />
-      </div>
     </div>
   );
 };

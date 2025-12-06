@@ -1,21 +1,21 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login/Login";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import { ToastContainer, toast } from "react-toastify";
+import AdminDashboard from "./pages/Dashboard/Dashboard.jsx"; // rename dashboard here
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SessionWatcher from "./sessionWatcher.js";
 
-// PROTECTED ROUTE
-const ProtectedRoute = ({ children }) => {
-  const userId = localStorage.getItem("userId");
-  return userId ? children : <Navigate to="/" replace />;
+// 🔐 ADMIN PROTECTED ROUTE
+const AdminProtectedRoute = ({ children }) => {
+  const adminId = localStorage.getItem("adminId");
+  return adminId ? children : <Navigate to="/" replace />;
 };
 
-// PUBLIC ROUTE
+// 🚫 PUBLIC ROUTE (Don’t show login if admin already logged in)
 const PublicRoute = ({ children }) => {
-  const userId = localStorage.getItem("userId");
-  return userId ? <Navigate to="/dashboard" replace /> : children;
+  const adminId = localStorage.getItem("adminId");
+  return adminId ? <Navigate to="/adminDashboard" replace /> : children;
 };
 
 const App = () => {
@@ -23,11 +23,11 @@ const App = () => {
     <>
       <BrowserRouter>
 
-        {/* SESSION WATCHER THAT AUTO-LOGOUTS */}
+        {/* AUTO LOGOUT SESSION WATCHER */}
         <SessionWatcher />
 
         <Routes>
-          {/* LOGIN PAGE */}
+          {/* ADMIN LOGIN PAGE */}
           <Route
             path="/"
             element={
@@ -37,22 +37,28 @@ const App = () => {
             }
           />
 
-          {/* DASHBOARD PAGE */}
+          {/* ADMIN DASHBOARD PAGE */}
           <Route
-            path="/dashboard"
+            path="/adminDashboard"
             element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
+              <AdminProtectedRoute>
+                <AdminDashboard />
+              </AdminProtectedRoute>
             }
           />
 
-          {/* FALLBACK ROUTE */}
+          {/* DEFAULT REDIRECT FOR UNKNOWN ROUTES */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
 
-      <ToastContainer position="top-right" autoClose={2500} theme="colored" />
+      {/* GLOBAL TOAST */}
+      <ToastContainer
+        position="top-right"
+        autoClose={2500}
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 };

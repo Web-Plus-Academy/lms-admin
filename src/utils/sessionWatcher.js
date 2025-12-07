@@ -6,7 +6,8 @@ const SessionWatcher = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const expiryTime = 10 * 1000; // 10 seconds for testing
+    const expiryTime = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
+    //const expiryTime = 10 * 1000; // 10 seconds for testing
     const loginTime = Number(localStorage.getItem("adminLoginTime"));
 
     // Stop if admin not logged in

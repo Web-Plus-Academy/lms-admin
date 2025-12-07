@@ -1,0 +1,21 @@
+.notfound-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7fa;
+  font-family: "Inter", sans-serif;
+}
+
+.notfound-container h1 {
+  font-size: 80px;
+  color: #ff4c4c;
+  margin: 0;
+}
+
+.notfound-container p {
+  font-size: 20px;
+  color: #444;
+  margin-top: 10px;
+}

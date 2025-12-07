@@ -1,0 +1,45 @@
+.manage-container {
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.tab-nav {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.tab-nav button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #e7e9ed;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.tab-nav button:hover {
+  background: #d5d7db;
+}
+
+.tab-nav .active {
+  background: #1e1e2d;
+  color: white;
+  font-weight: 600;
+  transform: scale(1.02);
+}
+
+.tab-body {
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.08);
+}

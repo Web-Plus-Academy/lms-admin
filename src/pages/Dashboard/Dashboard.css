@@ -1,0 +1,19 @@
+.admin-container {
+  display: flex;
+  height: 100vh;
+  background: #f5f7fa;
+  font-family: "Inter", sans-serif;
+}
+
+
+/* MAIN CONTENT */
+.admin-content {
+  flex: 1;
+  padding: 40px;
+  text-align: center;
+}
+
+.welcome-text {
+  font-size: 32px;
+  font-weight: bold;
+}

@@ -186,7 +186,8 @@
 .preview-section h4 {
   margin: 0 0 6px;
   font-size: 13px;
-  color: #e5e7eb;
+  color: #739df0;
+  text-decoration: underline;
 }
 
 .preview-section p {
@@ -262,4 +263,25 @@
     flex-direction: column-reverse;
     align-items: stretch;
   }
+}
+
+
+.danger-btn {
+  background: linear-gradient(135deg, #ff5f6d, #ff3c3c);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.danger-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.danger-btn:active {
+  transform: scale(0.97);
 }

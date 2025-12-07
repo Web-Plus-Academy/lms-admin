@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AddStudent from "../../components/AddStudent/AddStudent.jsx";
 import ViewStudents from "../../components/ViewStudents/ViewStudents.jsx";
-import EditStudent from "../../components/EditStudent/EditStudent.jsx";
+// import EditStudent from "../../components/EditStudent/EditStudent.jsx";
 import "./ManageStudents.css";
 
 const ManageStudents = () => {
@@ -11,7 +11,7 @@ const ManageStudents = () => {
     switch (tab) {
       case "add": return <AddStudent />;
       case "view": return <ViewStudents />;
-      case "edit": return <EditStudent />;
+    //   case "edit": return <EditStudent />;
       default: return <AddStudent />;
     }
   };
@@ -30,9 +30,9 @@ const ManageStudents = () => {
           👁️ View Students
         </button>
 
-        <button className={tab === "edit" ? "active" : ""} onClick={() => setTab("edit")}>
+        {/* <button className={tab === "edit" ? "active" : ""} onClick={() => setTab("edit")}>
           ✏️ Edit / Update
-        </button>
+        </button> */}
       </div>
 
       {/* RENDER SELECTED COMPONENT */}

@@ -1,0 +1,129 @@
+.students-container {
+  padding: 22px;
+}
+
+.heading {
+  font-size: 26px;
+  margin-bottom: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.left-top-bar{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.search-box{
+  width: 30%;
+}
+
+.top-bar select, .search-box {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+}
+
+.fetch-btn {
+  margin-left: 8px;
+  padding: 9px 14px;
+  background: #2563eb;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.fetch-btn:hover { background: #1e40af; }
+/* CONTAINER */
+.table-container {
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #222;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0f0f0f;
+}
+
+/* FIXED HEADER TABLE */
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.students-table thead {
+  position: sticky;
+  top: 0;
+  background: #111;
+  color: #fff;
+  z-index: 10;
+}
+
+.students-table th {
+  padding: 12px;
+  border-bottom: 1px solid #333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* SCROLL BODY */
+.table-body-scroll {
+  max-height: 350px; /* scrolling height */
+  overflow-y: auto;
+}
+
+.body-table tr {
+  background: #ffffff; /* Default row bg */
+  color: #000000;
+}
+
+.body-table td {
+  padding: 14px;
+  border-bottom: 1px solid #7b7b7b;
+}
+
+
+/* ROW HOVER */
+.body-table tr:hover {
+  background: rgba(34, 197, 94, 0.201); /* visible glow */
+  color: #ffffff;
+}
+
+
+/* BUTTONS */
+.view-btn, .edit-btn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px; /* space between view and edit buttons */
+}
+
+
+.view-btn { background: #3b82f6; color: white; }
+.view-btn:hover { background: #1e40af; }
+
+.edit-btn { background: #22c55e; color: black; }
+.edit-btn:hover { background: #15803d; }
+
+/* SCROLLBAR */
+.table-body-scroll::-webkit-scrollbar { width: 6px; }
+.table-body-scroll::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 8px; }

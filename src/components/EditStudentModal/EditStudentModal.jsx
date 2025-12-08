@@ -4,6 +4,7 @@ import "./EditStudentModal.css";
 import axios from "axios";
 import SERVER_URL from "../../config/backendUrl";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const EditStudentModal = ({ student, onClose, onUpdated }) => {
   const [formData, setFormData] = useState({
@@ -43,7 +44,6 @@ const EditStudentModal = ({ student, onClose, onUpdated }) => {
         currentWeek: student.currentWeek ?? "",
         currentMonth: student.currentMonth ?? "",
         currentSem: student.currentSem ?? "",
-        
         address: {
           doorNo: student.address?.doorNo ?? "",
           street: student.address?.street ?? "",
@@ -70,27 +70,101 @@ const EditStudentModal = ({ student, onClose, onUpdated }) => {
     }
   };
 
-  // SUBMIT UPDATED DATA
+  // SAVE STUDENT DATA
   const handleSave = async () => {
+    try {
+      await axios.put(
+        `${SERVER_URL}/api/adminAccess/updateProfile/${student.userId}`,
+        formData
+      );
+
+      toast.success("Student updated successfully!");
+
+      setTimeout(() => {
+        onClose();
+        onUpdated(); // refresh student table
+      }, 600);
+
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Update failed!");
+    }
+  };
+
+  // BLOCK USER FUNCTIONALITY
+  const handleBlockUser = async () => {
   try {
+    // Step 1 → Ask for UserId confirmation
+    const { value: enteredId } = await Swal.fire({
+      title: "Confirm Block",
+      html: `
+        To block this user, please enter the User ID:
+        <br/><b style="color:#2563eb">${student.userId}</b>
+      `,
+      input: "text",
+      inputPlaceholder: "Type User ID here...",
+      showCancelButton: true,
+      confirmButtonText: "Verify",
+      cancelButtonText: "Cancel",
+      inputValidator: (value) => {
+        if (!value) return "User ID is required!";
+      },
+    });
+
+    if (!enteredId) return;
+
+    if (enteredId.trim() !== student.userId) {
+      Swal.fire({
+        icon: "error",
+        title: "Incorrect User ID",
+        text: "UserID does not match. Blocking aborted.",
+      });
+      return;
+    }
+
+    // Step 2 → Final confirmation
+    const confirm = await Swal.fire({
+      icon: "warning",
+      title: "Block This User?",
+      html: `
+        <b>${student.fullName}</b> will lose access to the dashboard.
+        <br/><br/>
+        Are you sure you want to <span style="color:#b91c1c;font-weight:600;">BLOCK</span> this user?
+      `,
+      showCancelButton: true,
+      confirmButtonColor: "#dc2626",
+      cancelButtonColor: "#6b7280",
+      confirmButtonText: "Yes, Block User",
+    });
+
+    if (!confirm.isConfirmed) return;
+
+    // Step 3 → API Call
     await axios.put(
       `${SERVER_URL}/api/adminAccess/updateProfile/${student.userId}`,
-      formData
+      { status: "blocked" }
     );
 
-    toast.success("Student updated successfully!");
+    Swal.fire({
+      icon: "success",
+      title: "User Blocked",
+      html: `<b>${student.userId}</b> has been successfully blocked.`,
+      timer: 1800,
+      showConfirmButton: false,
+    });
 
-    // CLOSE MODAL AFTER TOAST
     setTimeout(() => {
-      onClose();   // close edit modal
-      onUpdated(); // refresh table safely
-    }, 600);
+      onClose();
+      onUpdated();
+    }, 700);
 
-  } catch (error) {
-    toast.error(error.response?.data?.message || "Update failed!");
+  } catch (err) {
+    Swal.fire({
+      icon: "error",
+      title: "Failed to Block User",
+      text: err.response?.data?.message || "Internal server error.",
+    });
   }
 };
-
 
 
   return (
@@ -205,8 +279,14 @@ const EditStudentModal = ({ student, onClose, onUpdated }) => {
 
         </div>
 
+        {/* BUTTON PANEL */}
         <div className="edit-buttons">
           <button className="edit-cancel-btn" onClick={onClose}>Cancel</button>
+
+          <button className="edit-block-btn" onClick={handleBlockUser}>
+            🚫 Block User
+          </button>
+
           <button className="edit-save-btn" onClick={handleSave}>
             <FaSave /> Save Changes
           </button>

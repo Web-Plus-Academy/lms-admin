@@ -188,9 +188,16 @@ const AddStudent = () => {
     <div className="preview-grid">
       <div className="preview-section">
         <h4>Account Info</h4>
-        <p><strong>User ID:</strong> {formData.userId}</p>
-        <p><strong>Email:</strong> {formData.email}</p>
-        <p><strong>Password:</strong> {formData.password}</p>
+        <div className="acc-preview">
+          <p className="preview-avatar"><img src={formData.avatar} alt="" /></p>
+          <div>
+
+            <p><strong>User ID:</strong> {formData.userId}</p>
+            <p><strong>Email:</strong> {formData.email}</p>
+            <p><strong>Password:</strong> {formData.password}</p>
+          </div>
+
+        </div>
       </div>
       <div className="preview-section">
         <h4>Personal Data</h4>
@@ -228,7 +235,7 @@ const AddStudent = () => {
   return (
     <div className="addstudent-wrapper">
       <div className="glass-card">
-        <h2>Add Student</h2>
+        <h2 className="heading">Add Student</h2>
 
         <div className="wizard-header">
           <p>Step {step} of {TOTAL_STEPS} • <span>{stepTitle[step]}</span></p>
@@ -368,6 +375,7 @@ const AddStudent = () => {
                   name="address.doorNo"
                   value={formData.address.doorNo}
                   onChange={handleChange}
+                  placeholder="Door Number"
                 />
               </div>
 
@@ -377,6 +385,7 @@ const AddStudent = () => {
                   name="address.street"
                   value={formData.address.street}
                   onChange={handleChange}
+                  placeholder="Street Name"
                 />
               </div>
 
@@ -386,6 +395,7 @@ const AddStudent = () => {
                   name="address.city"
                   value={formData.address.city}
                   onChange={handleChange}
+                  placeholder="City"
                 />
               </div>
 
@@ -395,6 +405,7 @@ const AddStudent = () => {
                   name="address.state"
                   value={formData.address.state}
                   onChange={handleChange}
+                  placeholder="State"
                 />
               </div>
 
@@ -404,6 +415,7 @@ const AddStudent = () => {
                   name="address.pincode"
                   value={formData.address.pincode}
                   onChange={handleChange}
+                  placeholder="Pincode"
                 />
               </div>
             </div>
@@ -459,7 +471,7 @@ const AddStudent = () => {
 
         {/* FOOTER BUTTONS */}
         <div className="wizard-footer">
-         
+
 
           <button
             className="ghost-btn"
@@ -469,7 +481,7 @@ const AddStudent = () => {
             ⬅ Back
           </button>
 
-           <button className="danger-btn" onClick={handleClearForm}>
+          <button className="danger-btn" onClick={handleClearForm}>
             Clear Form ✖
           </button>
 

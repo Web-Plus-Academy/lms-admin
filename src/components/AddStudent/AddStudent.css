@@ -10,13 +10,13 @@
 .glass-card {
   width: 100%;
   max-width: 960px;
-  background: radial-gradient(circle at top left, #706c6c, #111827ee);
+  /* background: radial-gradient(circle at top left, #ffffff, #ffeb90ee);
   border-radius: 24px;
   padding: 24px 28px 18px;
-  color: #f9fafb;
+  color: #000000;
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.45);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  
+  border: 1px solid rgba(148, 163, 184, 0.35); */
 }
 
 /* HEADER */
@@ -35,7 +35,7 @@
 .wizard-header p {
   margin: 4px 0 0;
   font-size: 13px;
-  color: #e5e7eb;
+  color: #6b5600;
 }
 
 .wizard-header span {
@@ -100,11 +100,37 @@
 
 /* BODY */
 .wizard-body {
-  background: radial-gradient(circle at top left, #0f172acc, #020617ee);
-  border-radius: 18px;
-  padding: 18px 18px 12px;
-  border: 1px solid rgba(30, 64, 175, 0.4);
+  padding: 28px;
+  border-radius: 20px;
+
+  /* Frosted glass transparency */
+  background: rgba(9, 0, 70, 0.35);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+
+  /* Gradient depth */
+  background-image: radial-gradient(
+      circle at top left,
+      rgba(13, 0, 83, 0.55),
+      rgba(2, 8, 37, 0.65)
+  );
+
+  /* Glass outline */
+  border: 1px solid rgba(255, 255, 255, 0.28);
+
+  /* Ambient glow + shadow */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    inset 0 0 18px rgba(255, 255, 255, 0.08);
 }
+
+.wizard-body:hover {
+  box-shadow:
+    0 12px 45px rgba(30, 64, 175, 0.45),
+    inset 0 0 25px rgba(30, 64, 175, 0.475);
+  transition: 0.5s ease-in-out;
+}
+
 
 /* GRID */
 .form-grid {
@@ -157,6 +183,7 @@
 
 /* REVIEW */
 .review-step {
+  color: #ffffff;
   padding: 4px 2px 6px;
 }
 
@@ -179,7 +206,7 @@
 .preview-section {
   background: rgba(15, 23, 42, 0.9);
   border-radius: 12px;
-  padding: 10px 12px;
+  padding: 12px;
   border: 1px solid rgba(55, 65, 81, 0.9);
 }
 
@@ -194,11 +221,26 @@
   margin: 2px 0;
   font-size: 12px;
   color: #d1d5db;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.acc-preview{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: left;
+
+}
+
+.preview-avatar img{
+  height: 100px;
+  border-radius: 10px;
 }
 
 /* FOOTER BUTTONS */
 .wizard-footer {
-  margin-top: 14px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -229,7 +271,7 @@
 
 .ghost-btn {
   background: transparent;
-  color: #e5e7eb;
+  color: #717171;
   border: 1px solid rgba(148, 163, 184, 0.7);
 }
 

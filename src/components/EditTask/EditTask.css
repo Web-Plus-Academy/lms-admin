@@ -1,0 +1,142 @@
+/* ===== BACKDROP ===== */
+.edit-task-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+  animation: fadeIn 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== FORM CARD ===== */
+.edit-task-form {
+  width: 520px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 30px;
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: slideUp 0.35s ease;
+  border: 1px solid #e5e7eb;
+}
+
+/* ===== TITLE ===== */
+.edit-heading {
+  text-align: center;
+  margin: 0 0 16px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+}
+
+/* ===== CLOSE BUTTON ===== */
+.close-btn {
+  position: absolute;
+  right: 14px;
+  top: 12px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.close-btn:hover {
+  color: #ef4444;
+  transform: scale(1.1);
+}
+
+/* ===== GRID ROW ===== */
+.edit-row {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+
+/* ===== INPUTS ===== */
+.edit-task-form input,
+.edit-task-form select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  color: #111827;
+  background: #ffffff;
+  transition: 0.25s ease;
+  width: 100%;
+}
+
+.edit-task-form input:focus,
+.edit-task-form select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Wide Inputs */
+.wide {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+/* ===== BUTTON ===== */
+.edit-task-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: 0.3s ease;
+}
+
+.edit-task-btn:hover {
+  background: #1e3a8a;
+  transform: translateY(-2px);
+}
+
+/* ===== LOADER CENTER ===== */
+.loader-center {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .edit-task-form {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .edit-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -57,12 +57,17 @@
 }
 
 /* BATCH DROPDOWN */
-.left-top-bar select {
+.left-top-bar select,
+.left-top-bar input {
   padding: 8px 14px;
   border-radius: 8px;
   border: 1px solid #d1d5db;
   outline: none;
   font-weight: 500;
+}
+
+.left-top-bar input {
+  width: 100px;
 }
 
 /* FETCH BUTTON */

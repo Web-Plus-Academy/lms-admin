@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AddStudent from "../../components/AddStudent/AddStudent.jsx";
 import ViewStudents from "../../components/ViewStudents/ViewStudents.jsx";
 import StudentProgress from "../../components/StudentProgress/StudentProgress.jsx";
-import "./ManageStudents.css";
+import "../style.css";
 
 const ManageStudents = () => {
   const [tab, setTab] = useState("add");
@@ -49,17 +49,17 @@ const ManageStudents = () => {
 
           <button className={tab === "add" ? "active" : ""}
             onClick={() => setTab("add")}>
-            ➕ Add Student
+            ➕ Register
           </button>
 
           <button className={tab === "view" ? "active" : ""}
             onClick={() => setTab("view")}>
-            👁️ View Students
+            📑 View 
           </button>
 
           <button className={tab === "edit" ? "active" : ""}
             onClick={() => setTab("edit")}>
-            📈 Student Progress
+            📈 Progress
           </button>
         </div>
 

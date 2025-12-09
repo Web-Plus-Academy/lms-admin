@@ -109,13 +109,17 @@ const ViewStudents = () => {
             <option value="BE">Backend Development</option>
           </select>
 
-          <select value={batch} onChange={(e) => setBatch(e.target.value)}>
+          {/* <select value={batch} onChange={(e) => setBatch(e.target.value)}>
             <option value="">-- Select Batch --</option>
             <option value="1">Batch-1</option>
             <option value="2">Batch-2</option>
             <option value="3">Batch-3</option>
             <option value="4">Batch-4</option>
-          </select>
+          </select> */}
+          <div>
+            <label>Batch - </label>
+            <input type="number" placeholder="Batch" value={batch} onChange={(e) => setBatch(e.target.value)} />
+         </div>
 
           <button className="fetch-btn" onClick={fetchStudents}>Fetch</button>
         </div>

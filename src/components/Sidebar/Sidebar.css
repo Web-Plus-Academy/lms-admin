@@ -19,41 +19,6 @@
 }
 
 /* ================================
-   COLLAPSE BUTTON
-================================ */
-/* COLLAPSE BUTTON - Attached to Sidebar Edge */
-.collapse-btn {
-  position: absolute;
-  top: 30px;
-  right: -20px;           /* sticks outside expanded sidebar */
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #111;
-  border: 1px solid #222;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 8px rgba(255,255,255,0.2);
-  transition: right 0.35s ease, transform 0.35s ease, background 0.3s;
-  z-index: 20;
-  border: 2px solid red;
-}
-
-.collapse-btn:hover {
-  background: #222;
-}
-
-/* ROTATION WHEN COLLAPSED */
-.sidebar-container.collapsed .collapse-btn {
-  right: -14px;           /* stays attached to collapsed width */
-  transform: rotate(180deg);
-}
-
-
-/* ================================
    COLLAPSED SIDEBAR STATE
 ================================ */
 .sidebar-container.collapsed {

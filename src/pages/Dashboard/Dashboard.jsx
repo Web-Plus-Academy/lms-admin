@@ -1,34 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import LogoutButton from "../../components/LogoutButton/LogoutButton";
 import ManageStudents from "../Students/ManageStudents";
-import Assignments from "../Assignments/Assignments";
-import NotFound404 from "../NotFound404/NotFound404"; // import 404
+import Assignments from "../Assignments/ManageAssignments";
+import Document from "../Documents/Documents";
+import NotFound404 from "../NotFound404/NotFound404";
 import "./Dashboard.css";
 
 const Dashboard = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggleSidebar = () => setCollapsed(!collapsed);
+
   return (
     <div className="admin-container">
-      <Sidebar />
 
-      <main className="admin-content">
+      {/* SIDEBAR gets props */}
+      <Sidebar collapsed={collapsed} toggleSidebar={toggleSidebar} />
+
+      {/* MAIN CONTENT adjusts width */}
+      <main className={`admin-content ${collapsed ? "expanded" : ""}`}>
         <Routes>
-          {/* DEFAULT DASHBOARD LANDING */}
           <Route path="/" element={<h1 className="welcome-text">Welcome Admin 🎉</h1>} />
 
-          {/* STUDENTS PAGE */}
           <Route path="students" element={<ManageStudents />} />
-
-          {/* ASSIGNMENTS PAGE */}
           <Route path="assignments" element={<Assignments />} />
+          <Route path="documents" element={<Document />} />
 
-
-          {/* 🛑 WRONG CHILD ROUTE CATCHER */}
+          {/* INVALID ROUTES */}
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
-
       </main>
+
     </div>
   );
 };

@@ -5,7 +5,7 @@ import Loader from "../../components/Loader/Loader";
 import SERVER_URL from "../../config/backendUrl";
 import "./EditTask.css";
 
-const EditTask = ({ oldData, closeModal }) => {
+const EditTask = ({ oldData, closeModal, refreshTasks }) => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     course: "",
@@ -51,7 +51,12 @@ const EditTask = ({ oldData, closeModal }) => {
         text: res.data.message,
       });
 
-      closeModal();
+      setTimeout(() => {
+        closeModal();
+        refreshTasks()// refresh assignment table
+      }, 600);
+      
+
     } catch (err) {
       Swal.fire("Error Updating Task", err.response?.data?.message || "Something went wrong!", "error");
     } finally {

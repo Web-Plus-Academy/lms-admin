@@ -9,18 +9,17 @@ const ManageStudents = () => {
 
   const downloadPdf = () => {
     const link = document.createElement("a");
-    link.href = "/ApplicationForm.pdf"; // path to your PDF
+    link.href = "/ApplicationForm.pdf";
     link.download = "Student_Application_Form.pdf";
     link.click();
   };
 
   const downloadPdf1 = () => {
     const link = document.createElement("a");
-    link.href = "/T&Cforrm.pdf"; // path to your PDF
+    link.href = "/T&Cforrm.pdf";
     link.download = "Course_T&C_Form.pdf";
     link.click();
   };
-
 
   const renderTab = () => {
     switch (tab) {
@@ -35,41 +34,53 @@ const ManageStudents = () => {
     <div className="manage-container">
       <h2 className="title">Manage Students 📚</h2>
 
-      {/* NAVBAR TABS */}
+      {/* TABS + DOWNLOAD BUTTONS */}
       <div className="tab-nav">
 
-        <div className="left-nav">
+        {/* TAB SECTION WITH SLIDING INDICATOR */}
+        <div className="tabs">
+          <span
+            className="tab-indicator"
+            style={{
+              left: tab === "add" ? "0%" :
+                    tab === "view" ? "33.33%" : "66.66%"
+            }}
+          />
 
-          <button className={tab === "add" ? "active" : ""} onClick={() => setTab("add")}>
+          <button className={tab === "add" ? "active" : ""}
+            onClick={() => setTab("add")}>
             ➕ Add Student
           </button>
 
-          <button className={tab === "view" ? "active" : ""} onClick={() => setTab("view")}>
+          <button className={tab === "view" ? "active" : ""}
+            onClick={() => setTab("view")}>
             👁️ View Students
           </button>
 
-          <button className={tab === "edit" ? "active" : ""} onClick={() => setTab("edit")}>
+          <button className={tab === "edit" ? "active" : ""}
+            onClick={() => setTab("edit")}>
             📈 Student Progress
           </button>
-
         </div>
 
+        {/* RIGHT SIDE DOWNLOADS */}
         <div className="right-nav">
-
           <button className="download-btn" onClick={downloadPdf}>
-            📄 Download Application Form
+            📄 Application Form
           </button>
-
           <button className="download-btn-1" onClick={downloadPdf1}>
-            📄 Download T&C Form
+            📄 Terms & Conditions
           </button>
-
         </div>
 
       </div>
 
-      {/* RENDER SELECTED COMPONENT */}
-      <div className="tab-body">{renderTab()}</div>
+      {/* TAB CONTENT */}
+      <div className="tab-body slide-container">
+        <div key={tab} className="slide-content">
+          {renderTab()}
+        </div>
+      </div>
     </div>
   );
 };

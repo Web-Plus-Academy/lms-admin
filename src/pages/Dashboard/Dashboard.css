@@ -5,12 +5,30 @@
   font-family: "Inter", sans-serif;
 }
 
+/* FIXED SIDEBAR */
+.sidebar-container {
+  width: 250px; /* match your component width */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: #111827; /* your sidebar bg */
+  color: white;
+  /* overflow-y: auto; */
+  padding-top: 20px;
+  z-index: 999;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.15);
+}
 
-/* MAIN CONTENT */
+/* SHIFT MAIN CONTENT RIGHT */
 .admin-content {
+  margin-left: 250px; /* same width as sidebar */
   flex: 1;
-  padding: 20px;
-  text-align: center;
+  padding: 24px 32px;
+  overflow-y: auto;
+  height: 100vh;
+  text-align: left;
+  background: #f8fafc;
 }
 
 .welcome-text {

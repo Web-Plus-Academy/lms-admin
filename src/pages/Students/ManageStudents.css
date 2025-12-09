@@ -3,79 +3,118 @@
   font-family: "Inter", sans-serif;
 }
 
+/* PAGE TITLE */
 .title {
   margin-bottom: 20px;
   font-size: 26px;
   font-weight: 600;
+  color: #111827;
 }
 
+/* NAVIGATION BAR */
 .tab-nav {
   display: flex;
   justify-content: space-between;
-  gap: 15px;
+  align-items: center;
   margin-bottom: 25px;
-}
-
-.left-nav{
-  display: flex;
   gap: 15px;
 }
 
-.tab-nav button {
-  padding: 12px 20px;
-  border: none;
+/* TABS CONTAINER */
+.tabs {
+  position: relative;
+  display: flex;
+  background: #d9d9d966;
+  padding: 6px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  min-width: 520px;
+}
+
+/* SLIDING HIGHLIGHT */
+.tab-indicator {
+  position: absolute;
+  top: 4px;
+  width: 33.33%;
+  height: calc(100% - 8px);
+  background: #f6f5ff;
   border-radius: 10px;
-  background: #e7e9ed;
-  cursor: pointer;
+  border: 1px solid rgba(129, 140, 248, 0.35);
+  box-shadow: inset 0 0 12px rgba(129, 140, 248, 0.25);
+  transition: left 0.35s ease-in-out;
+  z-index: 0;
+}
+
+/* TAB BUTTON STYLE */
+.tabs button {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 10px 0;
   font-size: 15px;
   font-weight: 500;
-  transition: 0.3s;
+  z-index: 2;
+  color: #4b5563;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.tab-nav button:hover {
-  background: #d5d7db;
-}
-
-.tab-nav .active {
-  background: #1e1e2d;
-  color: white;
+.tabs button.active {
+  color: #4f46e5;
   font-weight: 600;
-  transform: scale(1.02);
 }
 
-.tab-body {
-  padding: 20px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0px 2px 10px rgba(0,0,0,0.08);
+/* DOWNLOAD BUTTONS */
+.right-nav {
+  display: flex;
+  gap: 12px;
 }
 
-
-.download-btn {
-  background: linear-gradient(135deg, #2563eb, #1e3a8a) !important;
-  color: #fff;
-  padding: 10px 18px;
+.download-btn,
+.download-btn-1 {
+  padding: 10px 16px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
   font-weight: 600;
+  color: white;
   box-shadow: 0 3px 10px rgba(0,0,0,0.25);
   transition: 0.3s ease;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
 }
 
 .download-btn-1 {
-  background: linear-gradient(135deg, #25eb60, #1e8a40) !important;
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
-  transition: 0.3s ease;
+  background: linear-gradient(135deg, #25eb60, #1e8a40);
 }
 
-.right-nav{
-  display: flex;
-  gap: 15px;
+.download-btn:hover,
+.download-btn-1:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* TAB BODY CONTENT BOX */
+.tab-body {
+  padding: 22px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0px 2px 12px rgba(0,0,0,0.08);
+}
+
+/* CONTENT SLIDE TRANSITION */
+.slide-container {
+  overflow: hidden;
+}
+
+.slide-content {
+  animation: slideIn 0.45s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
 }

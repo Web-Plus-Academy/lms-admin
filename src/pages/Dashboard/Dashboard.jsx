@@ -6,6 +6,7 @@ import Assignments from "../Assignments/ManageAssignments";
 import Document from "../Documents/Documents";
 import NotFound404 from "../NotFound404/NotFound404";
 import "./Dashboard.css";
+import FinancialManagement from "../Financial/FinanceManagement";
 
 const Dashboard = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -26,6 +27,7 @@ const Dashboard = () => {
           <Route path="students" element={<ManageStudents />} />
           <Route path="assignments" element={<Assignments />} />
           <Route path="documents" element={<Document />} />
+          <Route path="finance" element={<FinancialManagement />} />
 
           {/* INVALID ROUTES */}
           <Route path="*" element={<Navigate to="/404" replace />} />

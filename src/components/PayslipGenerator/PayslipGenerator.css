@@ -1,0 +1,385 @@
+/* Form Section */
+.form-section {
+  background: #ffffff;
+  margin: auto;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.12);
+}
+
+.form-section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.main-section-pay{
+    display: flex;
+}
+
+.label-pay{
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.right-section,
+.left-section {
+    /* border: 2px solid red; */
+    width: 50%;
+    margin: 10px;
+}
+
+.inputBox,
+.buttons,
+select {
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.inputBox:focus,
+select:focus {
+  border-color: #0a8754;
+  box-shadow: 0 0 0 2px rgba(10, 135, 84, 0.15);
+}
+
+.buttons {
+  background: #0a8754;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.buttons:hover {
+  background: #086a42;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  /* border: 2px solid red; */
+}
+
+/* .buttons button {
+  flex: 1;
+} */
+
+/* Label for Employment Type */
+.employment-label {
+  font-size: 14px;
+  margin-top: 10px;
+  display: block;
+}
+
+.employment-label select {
+  margin-top: 4px;
+}
+
+.field-with-hint {
+  display: flex;
+  flex-direction: column;
+}
+
+.hint-text {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* Payslip Container */
+.payslip {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 20mm;
+  background: #ffffff;
+  box-sizing: border-box;
+  margin: 30px auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.2);
+  border-radius: 20px;
+}
+
+.payslip-container {
+  background: #ffffff;
+  padding: 15px 30px 30px;
+  max-width: 800px;
+  margin: auto;
+  border: 1px solid #e5e7eb;
+}
+
+.payslip-heading {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.payslip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payslip-header p {
+  margin: 2px 0;
+  font-size: 13px;
+}
+
+.payslip-logo-box img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 100%;
+  border: 2px solid #111827;
+}
+
+/* Employee Summary */
+.employee-summary {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 15px;
+  font-size: 14px;
+}
+
+.emp-summary-block {
+  max-width: 60%;
+}
+
+.emp-heading {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #9ca3af;
+  font-weight: 600;
+  color: #374151;
+}
+
+.emp-data {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
+}
+
+.emp-details {
+  width: 200px;
+  text-align: left;
+}
+
+/* Net Pay box (right) */
+.net-box {
+  padding: 15px;
+  border-radius: 10px;
+  background: #e9f8ef;
+  width: 220px;
+  border: 2px solid #9ca3af;
+}
+
+.green-box {
+  border-left: 4px solid #22c55e;
+  border-radius: 4px;
+  padding-left: 10px;
+  margin-bottom: 12px !important;
+}
+
+.net-amount {
+  font-size: 26px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.net-label {
+  font-size: 13px;
+  margin-top: 4px;
+  color: #374151;
+}
+
+.net-days {
+  font-size: 12px;
+  color: #4b5563;
+  padding-top: 8px;
+  padding-left: 4px;
+  border-top: 1px dashed #111827;
+  margin: 0 !important;
+}
+
+/* Earnings & Deductions */
+.earnings-deductions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  border: 2px solid #111827;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.earnings-deductions table {
+  font-size: 14px;
+  width: 50%;
+  /* border-collapse: collapse; */
+  padding: 10px;
+}
+
+.earnings-deductions th {
+  border-bottom: 2px dotted #111827;
+  padding: 8px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.earnings-deductions td {
+  padding: 6px 8px;
+  text-align: left;
+}
+
+.highlight {
+  background: #f5ffff;
+  height: 30px;
+}
+
+/* Net Payable Section */
+.net-payable-section {
+  text-align: center;
+  margin: 18px 0 10px;
+}
+
+.net-pay-container {
+  display: flex;
+  border: 2px solid #4b5563;
+  justify-content: space-between;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.net-payable-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.net-payable-label span {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.net-payable-box {
+  background: #e9f8ef;
+  color: #111827;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+}
+
+/* CTC Summary */
+.ctc-section {
+  margin-top: 20px;
+  border-top: 1px dashed #d1d5db;
+  padding-top: 12px;
+}
+
+.ctc-section h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ctc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+  margin-bottom: 8px;
+}
+
+.ctc-item {
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 8px 10px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+.ctc-label {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.ctc-value {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 2px;
+  color: #111827;
+}
+
+.ctc-note {
+  font-size: 11px;
+  color: #6b7280;
+  margin: 4px 0 0;
+}
+
+/* Footer note */
+.footer-note {
+  text-align: center;
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 16px;
+}
+
+/* Responsive tweaks (for on-screen view only) */
+@media (max-width: 900px) {
+  .payslip {
+    width: 100%;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .employee-summary {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .emp-summary-block {
+    max-width: 100%;
+  }
+
+  .net-box {
+    width: 100%;
+  }
+
+  .earnings-deductions {
+    flex-direction: column;
+  }
+
+  .earnings-deductions table {
+    width: 100%;
+  }
+
+  .ctc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+

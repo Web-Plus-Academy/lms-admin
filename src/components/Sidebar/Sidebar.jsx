@@ -1,5 +1,5 @@
 import React from "react";
-import { FaUsers, FaClipboardList, FaHome, FaChevronLeft, FaFileInvoice,FaRupeeSign } from "react-icons/fa";
+import { FaUsers, FaClipboardList, FaHome, FaChevronLeft, FaFileInvoice,FaRupeeSign, FaRegBell } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./Sidebar.css";
 import LogoutButton from "../LogoutButton/LogoutButton";
@@ -40,6 +40,7 @@ export default function Sidebar({ collapsed, toggleSidebar }) {
         <MenuItem icon={<FaClipboardList />} title="Assignments" path="/adminDashboard/assignments" />
         <MenuItem icon={<FaRupeeSign />} title="Finance" path="/adminDashboard/finance" />
         <MenuItem icon={<FaFileInvoice />} title="Documents" path="/adminDashboard/documents" />
+        <MenuItem icon={<FaRegBell />} title="Notification" path="/adminDashboard/notification" />
       </ul>
 
       {/* LOGOUT */}

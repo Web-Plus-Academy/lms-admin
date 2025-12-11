@@ -4,9 +4,10 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import ManageStudents from "../Students/ManageStudents";
 import Assignments from "../Assignments/ManageAssignments";
 import Document from "../Documents/Documents";
-import NotFound404 from "../NotFound404/NotFound404";
+// import NotFound404 from "../NotFound404/NotFound404";
 import "./Dashboard.css";
 import FinancialManagement from "../Financial/FinanceManagement";
+import NotificationSender from "../NotificationManagement/NotificationManagement";
 
 const Dashboard = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -28,6 +29,7 @@ const Dashboard = () => {
           <Route path="assignments" element={<Assignments />} />
           <Route path="documents" element={<Document />} />
           <Route path="finance" element={<FinancialManagement />} />
+          <Route path="notification" element={<NotificationSender />} />
 
           {/* INVALID ROUTES */}
           <Route path="*" element={<Navigate to="/404" replace />} />

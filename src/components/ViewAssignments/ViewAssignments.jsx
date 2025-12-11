@@ -28,23 +28,34 @@ const ViewAssignments = () => {
             return;
         }
 
-        try {
-            setLoading(true);
-            const res = await axios.get(`${SERVER_URL}/api/adminAccess/getTasks/${batch}/${course}`);
+        // 🔥 Clear previous data BEFORE fetching
+        setAssignments([]);
+        setLoading(true);
 
-            if (!res.data.success) {
-                Swal.fire("No Tasks!", res.data.message, "info");
+        try {
+            const res = await axios.get(
+                `${SERVER_URL}/api/adminAccess/getTasks/${batch}/${course}`
+            );
+
+            if (!res.data.success || res.data.assignments.length === 0) {
+                // 🔥 No data? Keep assignments empty & show message
+                setAssignments([]);
+                Swal.fire("No Tasks Found", "No assignments available for the selected batch & course.", "info");
                 return;
             }
 
+            // 🔥 Set new data
             setAssignments(res.data.assignments);
-        } catch {
+
+        } catch (err) {
+            // 🔥 On error also clear old data
+            setAssignments([]);
             Swal.fire("Error", "Failed to load tasks", "error");
-            assignments.length = 0;
         } finally {
             setLoading(false);
         }
     };
+
 
     // OPEN EDIT MODAL
     const openEditPopup = (task, sem, month, week) => {
@@ -133,14 +144,6 @@ const ViewAssignments = () => {
                         <option value="BE">Backend Development</option>
                     </select>
 
-                    {/* <select value={batch} onChange={(e) => setBatch(e.target.value)}>
-          <option value="">Select Batch</option>
-          <option value="1">Batch 1</option>
-          <option value="2">Batch 2</option>
-          <option value="3">Batch 3</option>
-          <option value="4">Batch 4</option>
-        </select> */}
-
                     <div>
                         <label>Batch - </label>
                         <input type="number" placeholder="Batch" value={batch} onChange={(e) => setBatch(e.target.value)} />
@@ -148,11 +151,6 @@ const ViewAssignments = () => {
 
                     <button className="fetch-btn" onClick={fetchTasks}>Fetch</button>
                 </div>
-
-                {/* SUB FILTERS */}
-                {/* {assignments.length > 0 && (
-        
-      )} */}
 
                 <div className="filter-row-right">
                     S<input type="number" placeholder="Sem" value={filterSem} onChange={(e) => setFilterSem(e.target.value)} />
@@ -247,19 +245,23 @@ const ViewAssignments = () => {
                     ))
             }
 
-            {/* NO RESULTS AFTER FILTERING */}
-            {!loading && assignments.length > 0 &&
-                assignments
-                    .filter(s => !filterSem || s.sem == filterSem)
-                    .every(sem =>
-                        sem.months
-                            .filter(m => !filterMonth || m.month == filterMonth)
-                            .every(month =>
-                                month.weeks
-                                    .filter(w => !filterWeek || w.week == filterWeek)
-                                    .every(week => week.tasks.length === 0)
-                            )
-                    ) && (
+            {/* NO RESULTS (after fetch OR after filtering) */}
+            {
+                !loading && (
+                    assignments.length === 0 ||
+
+                    assignments
+                        .filter(s => !filterSem || s.sem == filterSem)
+                        .every(sem =>
+                            sem.months
+                                .filter(m => !filterMonth || m.month == filterMonth)
+                                .every(month =>
+                                    month.weeks
+                                        .filter(w => !filterWeek || w.week == filterWeek)
+                                        .every(week => week.tasks.length === 0)
+                                )
+                        )
+                ) && (
                     <div className="no-results-box">
                         <img
                             src="https://cdn-icons-png.flaticon.com/512/6124/6124991.png"
@@ -267,9 +269,14 @@ const ViewAssignments = () => {
                             className="no-img"
                         />
                         <h3>No Assignments Found 📭</h3>
-                        <p>Try selecting a different Semester, Month, or Week filter.</p>
+                        <p>
+                            {assignments.length === 0
+                                ? "No assignments available yet."
+                                : "Try selecting a different Semester, Month, or Week filter."}
+                        </p>
                     </div>
-                )}
+                )
+            }
 
 
 

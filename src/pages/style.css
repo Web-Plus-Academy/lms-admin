@@ -29,7 +29,11 @@
   border-radius: 14px;
   border: 1px solid #e5e7eb;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  min-width: 40%;
+  min-width: 30%;
+}
+
+.tab4{
+  min-width: 40% ;
 }
 
 /* SLIDING HIGHLIGHT */
@@ -67,6 +71,7 @@
 
 /* DOWNLOAD BUTTONS */
 .right-nav {
+  margin: 20px;
   display: flex;
   gap: 12px;
 }

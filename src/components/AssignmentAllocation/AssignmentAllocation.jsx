@@ -99,13 +99,14 @@ const AssignmentAllocation = () => {
 
         <div className="assign-field two">
           <label>Batch</label>
-          <select name="batch" value={formData.batch} onChange={handleChange} disabled={loading}>
+          {/* <select name="batch" value={formData.batch} onChange={handleChange} disabled={loading}>
             <option value="">-- Select Batch --</option>
             <option value="1">Batch 1</option>
             <option value="2">Batch 2</option>
             <option value="3">Batch 3</option>
             <option value="4">Batch 4</option>
-          </select>
+          </select> */}
+          <input style={{marginTop:"8px"}} name="batch" type="number" placeholder="Batch" value={formData.batch} onChange={handleChange} />
         </div>
 
         <div className="assign-field one">

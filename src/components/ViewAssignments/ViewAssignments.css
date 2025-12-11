@@ -310,6 +310,10 @@ MAIN FILTER ROW (Course / Batch / Fetch)
     margin: 0;
 }
 
+.filter-row-left select{
+  width: auto !important;
+}
+
 .filter-row-left select,
 .filter-row-left input,
 .filter-row-right input {

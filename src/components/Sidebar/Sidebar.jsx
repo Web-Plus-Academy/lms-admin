@@ -36,7 +36,7 @@ export default function Sidebar({ collapsed, toggleSidebar }) {
       {/* MENU ITEMS */}
       <ul className="menu-list">
         <MenuItem icon={<FaHome />} title="Dashboard" path="/adminDashboard" />
-        <MenuItem icon={<FaUsers />} title="Manage Students" path="/adminDashboard/students" />
+        <MenuItem icon={<FaUsers />} title="Students" path="/adminDashboard/students" />
         <MenuItem icon={<FaClipboardList />} title="Assignments" path="/adminDashboard/assignments" />
         <MenuItem icon={<FaRupeeSign />} title="Finance" path="/adminDashboard/finance" />
         <MenuItem icon={<FaFileInvoice />} title="Documents" path="/adminDashboard/documents" />

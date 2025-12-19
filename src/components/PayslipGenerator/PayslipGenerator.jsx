@@ -129,9 +129,12 @@ const PayslipGenerator = () => {
 
     // Full-time: apply deductions; Intern: no deductions
     if (form.employmentType === "fulltime") {
-      pf = basic * 0.12; // 12% of Basic
-      pt = 200; // fixed
-      incomeTax = gross * 0.04; // 4% of Gross
+      // pf = basic * 0.12; // 12% of Basic
+      // pt = 200; // fixed
+      // incomeTax = gross * 0.04; // 4% of Gross
+      pf = 0
+      pt = 0
+      incomeTax = 0
     }
 
     const deductions = pf + pt + incomeTax;
@@ -471,21 +474,21 @@ const PayslipGenerator = () => {
                   <tr>
                     <td>
                       Employee PF
-                      <br /> (12% of Basic)
+                      {/* <br /> (12% of Basic) */}
                     </td>
                     <td>{formatINR(previewData.data.pf)}</td>
                   </tr>
                   <tr>
                     <td>
                       Professional Tax
-                      <br /> (fixed)
+                      {/* <br /> (fixed) */}
                     </td>
                     <td>{formatINR(previewData.data.pt)}</td>
                   </tr>
                   <tr>
                     <td>
                       Income Tax
-                      <br /> (4% of Gross)
+                      {/* <br /> (4% of Gross) */}
                     </td>
                     <td>{formatINR(previewData.data.incomeTax)}</td>
                   </tr>
@@ -534,7 +537,8 @@ const PayslipGenerator = () => {
                 </div>
                 <div className="ctc-item">
                   <span className="ctc-label">
-                    Employer PF (12% of Basic)
+                    Employer PF 
+                    {/* (12% of Basic) */}
                   </span>
                   <span className="ctc-value">
                     {formatINR(previewData.employerPF)}

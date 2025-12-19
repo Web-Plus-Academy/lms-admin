@@ -341,16 +341,18 @@ const PayslipGenerator = () => {
                   <b>CIN:</b> U85307AP2024PTC116844
                 </p>
                 <p>
-                  22-5-97/2 PLOT NO.81, Kotthapalle, Sujatha Nagar,
-                  Tirupati,
+                  <b>Reg.Off:</b> 22-5-97/2 PLOT NO.81, Kotthapalle, Sujatha Nagar,
                   <br />
-                  Andhra Pradesh - 517501
+                  Tirupati, Andhra Pradesh - 517501
+                </p>
+                <p>
+                  <b>Email:</b> hr@saredufywpa.in
                 </p>
                 <p>
                   <b>Contact:</b> +91-8886200010
                 </p>
                 <p>
-                  <b>Email:</b> info@saredufywpa.com
+                  <b>Website:</b> www.saredufywpa.in
                 </p>
               </div>
               <div className="payslip-logo-box">

@@ -8,6 +8,7 @@ import Document from "../Documents/Documents";
 import "./Dashboard.css";
 import FinancialManagement from "../Financial/FinanceManagement";
 import NotificationSender from "../NotificationManagement/NotificationManagement";
+import RecordingManagement from "../Recordings/RecordingManagement";
 
 const Dashboard = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -30,6 +31,7 @@ const Dashboard = () => {
           <Route path="documents" element={<Document />} />
           <Route path="finance" element={<FinancialManagement />} />
           <Route path="notification" element={<NotificationSender />} />
+          <Route path="recording" element={<RecordingManagement />} />
 
           {/* INVALID ROUTES */}
           <Route path="*" element={<Navigate to="/404" replace />} />

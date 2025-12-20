@@ -145,7 +145,8 @@ const PayslipGenerator = () => {
     data.incomeTax = incomeTax;
 
     // CTC calculations
-    const employerPF = form.employmentType === "fulltime" ? basic * 0.12 : 0;
+    // const employerPF = form.employmentType === "fulltime" ? basic * 0.12 : 0;
+    const employerPF = 0;
     const monthlyCTC = gross + employerPF;
     const yearlyCTC = monthlyCTC * 12;
     const suggestedHRA = basic * 0.4;

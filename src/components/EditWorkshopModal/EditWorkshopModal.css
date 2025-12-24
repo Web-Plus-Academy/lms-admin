@@ -1,0 +1,159 @@
+/* ===== OVERLAY ===== */
+.admin-editworkshop-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* ===== CARD ===== */
+.admin-editworkshop-card {
+  background: #ffffff;
+  width: 880px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  padding: 24px 28px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  font-family: "Outfit", sans-serif;
+}
+
+/* ===== HEADER ===== */
+.admin-editworkshop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-editworkshop-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.admin-editworkshop-close {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ===== BODY ===== */
+.admin-editworkshop-body {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ===== GRID ===== */
+.admin-editworkshop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 900px) {
+  .admin-editworkshop-card {
+    width: 95%;
+  }
+
+  .admin-editworkshop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-editworkshop-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== FIELD ===== */
+.admin-editworkshop-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-editworkshop-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+/* ===== INPUTS ===== */
+.admin-editworkshop-input,
+.admin-editworkshop-textarea {
+  padding: 11px 12px;
+  font-size: 14px;
+  border-radius: 9px;
+  border: 1px solid #dcdcdc;
+  outline: none;
+  transition: 0.25s;
+}
+
+.admin-editworkshop-input:focus,
+.admin-editworkshop-textarea:focus {
+  border-color: #ff7a00;
+  box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.15);
+}
+
+/* ===== TEXTAREA ===== */
+.admin-editworkshop-textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ===== PAID ===== */
+.admin-editworkshop-paid-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.admin-editworkshop-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.admin-editworkshop-price {
+  width: 160px;
+}
+
+/* ===== FOOTER ===== */
+.admin-editworkshop-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+/* ===== BUTTONS ===== */
+.admin-editworkshop-btn {
+  padding: 10px 22px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-editworkshop-btn.cancel {
+  background: #eee;
+  color: #333;
+}
+
+.admin-editworkshop-btn.save {
+  background: linear-gradient(135deg, #ff7a00, #ff9f43);
+  color: white;
+}
+
+.admin-editworkshop-btn.save:hover {
+  box-shadow: 0 10px 25px rgba(255, 122, 0, 0.35);
+}

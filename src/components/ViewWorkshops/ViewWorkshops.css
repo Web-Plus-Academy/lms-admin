@@ -1,0 +1,112 @@
+/* ===== GRID ===== */
+.workshop-view-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 12px;
+  font-family: "Outfit", sans-serif;
+}
+
+/* ===== CARD ===== */
+.workshop-view-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.workshop-view-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== HEADER ===== */
+.workshop-view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workshop-view-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ===== PRICE ===== */
+.workshop-view-price {
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  background: #f3f4f6;
+}
+
+.workshop-view-price.free {
+  color: #16a34a;
+}
+
+.workshop-view-price.paid {
+  color: #ff7a00;
+}
+
+/* ===== META ===== */
+.workshop-view-meta {
+  font-size: 13.5px;
+  color: #374151;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 14px;
+}
+
+/* ===== SKILLS ===== */
+.workshop-skill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.workshop-skill-pill {
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  background: #f3f4f6;
+  color: #374151;
+  border-radius: 999px;
+}
+
+/* ===== ACTIONS ===== */
+.workshop-view-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ===== BUTTONS ===== */
+.workshop-btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.workshop-btn.edit {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.workshop-btn.delete {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.workshop-btn:hover {
+  opacity: 0.85;
+}

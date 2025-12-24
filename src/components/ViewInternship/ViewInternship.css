@@ -1,0 +1,142 @@
+/* ===== GRID ===== */
+.internship-view-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+  padding: 12px;
+}
+
+/* ===== CARD ===== */
+.internship-view-card {
+  border-left: 10px solid orange;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 22px 24px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  font-family: "Outfit", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.internship-view-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== HEADER ===== */
+.internship-view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.internship-view-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+}
+
+/* ===== BADGE ===== */
+.internship-view-badge {
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.internship-view-badge.paid {
+  background: #fff1e6;
+  color: #ff7a00;
+}
+
+.internship-view-badge.unpaid {
+  background: #f1f5f9;
+  color: #555;
+}
+
+.internship-view-badge.stipend {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+/* ===== BASIC INFO ===== */
+.internship-view-section {
+  font-size: 14px;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ===== INFO GRID ===== */
+.internship-view-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 16px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ===== STATUS ===== */
+.status-active {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.status-inactive {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* ===== SKILLS ===== */
+.internship-skill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.internship-skill-pill {
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  background: #f3f4f6;
+  color: #333;
+  border-radius: 999px;
+}
+
+/* ===== ACTIONS ===== */
+.internship-view-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ===== BUTTONS ===== */
+.internship-view-btn {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.internship-view-btn.edit {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.internship-view-btn.delete {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.internship-view-btn:hover {
+  opacity: 0.85;
+}

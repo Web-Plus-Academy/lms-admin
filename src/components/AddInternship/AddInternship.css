@@ -1,0 +1,115 @@
+/* ===== Card ===== */
+.internship-form {
+  background: #fff;
+  padding: 28px 32px;
+  border-radius: 16px;
+  max-width: 880px;
+  margin: auto;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  font-family: "Outfit", sans-serif;
+}
+
+/* ===== Sections ===== */
+.internship-section {
+  margin-bottom: 28px;
+}
+
+.internship-section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 14px;
+  border-left: 4px solid #ff7a00;
+  padding-left: 10px;
+}
+
+/* ===== Grids ===== */
+.internship-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.internship-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 900px) {
+  .internship-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .internship-grid,
+  .internship-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Fields ===== */
+.internship-field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Labels ===== */
+.internship-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+/* ===== Inputs ===== */
+.internship-input,
+.internship-select,
+.internship-textarea {
+  padding: 11px 12px;
+  font-size: 14px;
+  border-radius: 9px;
+  border: 1px solid #dcdcdc;
+  outline: none;
+  transition: 0.25s;
+}
+
+.internship-input:focus,
+.internship-select:focus,
+.internship-textarea:focus {
+  border-color: #ff7a00;
+  box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.15);
+}
+
+/* ===== Description ===== */
+.internship-textarea {
+  width: 100%;
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* ===== Button ===== */
+.internship-submit-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 15px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff7a00, #ff9f43);
+  color: white;
+  transition: 0.2s ease;
+}
+
+.internship-submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(255, 122, 0, 0.35);
+}
+
+.internship-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -23,21 +23,6 @@
 }
 
 
-/* FIXED SIDEBAR */
-.sidebar-container {
-  width: 250px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  background: #111827;
-  color: #fff;
-  padding-top: 20px;
-  transition: width 0.3s ease-in-out; /* Smooth collapse */
-  z-index: 1000;
-  box-shadow: 4px 0 12px rgba(0,0,0,0.15);
-}
-
 /* MAIN CONTENT AREA */
 .admin-content {
   flex: 1;
@@ -83,8 +68,9 @@
   justify-content: center;
   box-shadow: 0 0 8px rgba(255,255,255,0.2);
   transition: right 0.35s ease, transform 0.35s ease, background 0.3s;
-  z-index: 20;
+  z-index: 100000;
   border: 2px solid red;
+  display: none;
 }
 
 .collapse-btn:hover {
